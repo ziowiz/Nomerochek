@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Language" content="ru">
+    <title>Loading...</title>
+    <link rel="stylesheet" href="style/style.css">
+    <style>
+        body {
+            text-align: center;
+            padding-top: 50px;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            background-color: #f7f7f7;
+            color: #333;
+            margin: 0;
+            height: 100vh;
+        }
+    
+        .loader {
+            margin: auto;
+            border: 6px solid #eee;
+            border-top: 6px solid #3498db;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+        }
+    
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+    
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    
+        .message {
+            display: none;
+            padding: 20px;
+        }
+    
+        noscript .message {
+            display: block;
+            background-color: white;
+            max-width: 500px;
+            margin: 20px auto;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+    <script>
+        // Функция определения языка браузера
+        function getBrowserLanguage() {
+            var lang = navigator.language || navigator.userLanguage; 
+            lang = lang.substr(0, 2).toLowerCase();
+            return lang;
+        }
+
+        // Перенаправление на соответствующий HTML файл в зависимости от языка
+        switch(getBrowserLanguage()) {
+            case 'ru':
+                window.location.href = 'index_ru.html';
+                break;
+            case 'en':
+                window.location.href = 'index_en.html';
+                break;
+            case 'de':
+                window.location.href = 'index_sk.html';
+                break;
+            default:
+                window.location.href = 'index_en.html'; // Перенаправление на английскую версию по умолчанию
+        }
+    </script>
+</head>
+<body>
+    <div class="loader"></div>
+    <noscript>
+        <div class="message">
+            <h1>Please Enable JavaScript</h1>
+            <p>JavaScript is required for the full functionality of our site. Please enable JavaScript in your browser
+                settings.</p>
+            <p>If you are experiencing internet issues, please wait and the page will load once the connection is
+                restored.</p>
+            <!-- Here you can add some links or information -->
+        </div>
+    </noscript>
+</body>
+</html>
